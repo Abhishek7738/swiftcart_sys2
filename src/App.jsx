@@ -6,7 +6,7 @@
 import Navbar from "./Navbar"
 
 import Home from "./Home"
-import Categories from "./Categories"
+import Sell from "./Sell"
 import Cart from "./Cart"
 import Notify from "./Notify"
 import Error404 from "./Error404" 
@@ -23,7 +23,7 @@ function App() {
       <Routes>
 
         <Route exact path="/" element={<Home />} />
-        <Route path="/categories" element={<Categories />} />
+        <Route path="/sell" element={<Sell />} />
         <Route path="/cart" element={<Cart/>} /> {/* Order page inside Cart page */}
         <Route path="/notify" element={<Notify />} />
         <Route path="/login" element={<Login />} />

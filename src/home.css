@@ -6,7 +6,7 @@ body {
   }
 
   .container{
-    margin-top: 50px;
+    margin-top: 20px;
     padding: 0;
     /* text-align: center; */
   }
@@ -93,7 +93,7 @@ body {
   /* Products Styles */
   .products {
     /* padding: 10px; */
-    margin: 0;
+    margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
@@ -160,3 +160,109 @@ body {
     color: #333333;
   }
   
+
+  .logo-right{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.nav-left{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.user-dropdown{
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart-container{
+  margin: 200px;
+}
+
+/* Style the cart items table */
+.cart-items {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.cart-items th, .cart-items td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.cart-items th {
+  background-color: #f2f2f2;
+}
+
+/* Style the remove button */
+.remove-button {
+  background-color: #ff5a5f;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+/* Style the cart summary */
+.cart-summary {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-summary p {
+  font-size: 18px;
+}
+
+/* Style the checkout button */
+.checkout-button {
+  background-color: #ff5a5f;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* Style hover effect on buttons */
+.remove-button:hover, .checkout-button:hover {
+  background-color: #ff3336;
+}
+
+/* Modal styles *//* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.modal.open {
+  display: flex;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  cursor: pointer;
+}
+
