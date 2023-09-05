@@ -16,36 +16,36 @@ const Navbar = () => {
           </div>
   
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent"
           aria-expanded="false"
           aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <form class="d-flex">
+        <form className="d-flex">
           <input
-            class="form-control me-2"
+            className="form-control me-2"
             type="search"
             placeholder="Search"
             aria-label="Search"
           />
-          <button class="btn btn-outline-success" type="submit">
+          <button className="btn btn-outline-light" type="submit">
             Search
           </button>
         </form>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul>
         <li>
-              <NavLink to="/">Home</NavLink>
+              <NavLink to="/" className={"btn btn-warning"}>Home</NavLink>
             </li>
             <li>
-              <NavLink to="/categories">Categories</NavLink>
+              <NavLink to="/categories" className={"btn btn-warning"}>Categories</NavLink>
             </li>
             <li>
-              <NavLink to="/cart">Cart</NavLink>
+              <NavLink to="/cart" className={"btn btn-warning"}>Cart</NavLink>
             </li>
             <li>
               {isAuthenticated ? (
@@ -54,7 +54,7 @@ const Navbar = () => {
                   Logout
                 </NavLink>
               ) : (
-                <NavLink onClick={() => loginWithRedirect()}>Login</NavLink>
+                <NavLink onClick={() => loginWithRedirect()} className={"btn btn-warning"}>Login</NavLink>
               )}
             </li>
           </ul>
