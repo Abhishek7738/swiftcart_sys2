@@ -11,6 +11,7 @@ import Cart from "./Cart"
 import Notify from "./Notify"
 import Error404 from "./Error404" 
 import Login from "./Login"
+import Footer from "./Footer"
 import { Route, Routes } from "react-router-dom"
 
 
@@ -20,6 +21,7 @@ function App() {
   return (
     <>
       <Navbar />
+
       <Routes>
 
         <Route exact path="/" element={<Home />} />
@@ -31,6 +33,8 @@ function App() {
         <Route path="*" element={<Error404 />} />
 
       </Routes>
+
+      <Footer />
     </>
   )
 }

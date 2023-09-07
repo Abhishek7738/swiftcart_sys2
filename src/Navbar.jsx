@@ -32,7 +32,7 @@ const Navbar = () => {
             <input
               className="form-control me-2"
               type="search"
-              placeholder="Search"
+              placeholder="search new arrivals"
               aria-label="Search"
             />
             <button className="btn btn-outline-light" type="submit">

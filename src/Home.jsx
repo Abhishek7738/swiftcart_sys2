@@ -63,121 +63,121 @@ const Home = () => {
 
           <section className="products">
             <div className="product-item">
-              <img src="/electro_1.jpeg" alt="shose" />
+              <img src="/electro_1.jpeg" alt="laptop" />
               <h3>Laptop</h3>
-              <p>Description of Product 1</p>
+              <p>Price 56,500</p>
               <button className="add-to-cart">Add to Cart</button>
             </div>
 
             <div className="product-item">
-              <img src="/electro_2.jpeg" alt="sunglasses" />
+              <img src="/electro_2.jpeg" alt="Camera" />
               <h3>DSLR Camera</h3>
-              <p>Description of Product 2</p>
+              <p>Price 85,393</p>
               <button className="add-to-cart">Add to Cart</button>
             </div>
 
             <div className="product-item">
-              <img src="/electro_3.jpeg" alt="headphone" />
+              <img src="/electro_3.jpeg" alt="soundbar" />
               <h3>Soundbar</h3>
-              <p>Description of Product 3</p>
+              <p>Price 4599</p>
               <button className="add-to-cart">Add to Cart</button>
             </div>
 
             <div className="product-item">
-              <img src="/electro_4.jpeg" alt="headphone" />
+              <img src="/electro_4.jpeg" alt="dronecam" />
               <h3>Drone Cam</h3>
-              <p>Description of Product 3</p>
+              <p>Price 1,54999</p>
               <button className="add-to-cart">Add to Cart</button>
             </div>
 
             <div className="product-item">
               <img src="/electro_5.jpeg" alt="headphone" />
               <h3>Headphone</h3>
-              <p>Description of Product 3</p>
+              <p>Price 2999</p>
               <button className="add-to-cart">Add to Cart</button>
             </div>
 
             <div className="product-item">
-              <img src="/fashion_1.jpeg" alt="facemsk" />
+              <img src="/fashion_1.jpeg" alt="shoes" />
               <h3>Shoes</h3>
-              <p>Description of Product 4</p>
+              <p>Price 5365</p>
               <button className="add-to-cart">Add to Cart</button>
             </div>
 
             <div className="product-item">
-              <img src="/fashion_2.jpeg" alt="headphone" />
+              <img src="/fashion_2.jpeg" alt="jeans" />
               <h3>Jeans</h3>
-              <p>Description of Product 3</p>
+              <p>Price 2163</p>
               <button className="add-to-cart">Add to Cart</button>
             </div>
 
             <div className="product-item">
-              <img src="/fashion_3.jpeg" alt="headphone" />
+              <img src="/fashion_3.jpeg" alt="watch" />
               <h3>Watch</h3>
-              <p>Description of Product 3</p>
+              <p>Price 2199</p>
               <button className="add-to-cart">Add to Cart</button>
             </div>
 
             <div className="product-item">
-              <img src="/fashion_4.jpeg" alt="headphone" />
+              <img src="/fashion_4.jpeg" alt="tshirt" />
               <h3>Tshirt</h3>
-              <p>Description of Product 3</p>
+              <p>Price 1500</p>
               <button className="add-to-cart">Add to Cart</button>
             </div>
 
             <div className="product-item">
-              <img src="/fashion_5.jpeg" alt="headphone" />
+              <img src="/fashion_5.jpeg" alt="goggle" />
               <h3>Goggle</h3>
-              <p>Description of Product 3</p>
+              <p>Price 999</p>
               <button className="add-to-cart">Add to Cart</button>
             </div>
 
             <div className="product-item">
-              <img src="/furnaniture_1.jpeg" alt="headphone" />
+              <img src="/furnaniture_1.jpeg" alt="bed" />
               <h3>Bed</h3>
-              <p>Description of Product 3</p>
+              <p>Price 25,600</p>
               <button className="add-to-cart">Add to Cart</button>
             </div>
 
             <div className="product-item">
-              <img src="/furnaniture_2.jpeg" alt="headphone" />
+              <img src="/furnaniture_2.jpeg" alt="table" />
               <h3>Table</h3>
-              <p>Description of Product 3</p>
+              <p>Price 4500</p>
               <button className="add-to-cart">Add to Cart</button>
             </div>
 
             <div className="product-item">
-              <img src="/furnaniture_3.jpeg" alt="headphone" />
+              <img src="/furnaniture_3.jpeg" alt="chair" />
               <h3>Chair</h3>
-              <p>Description of Product 3</p>
+              <p>Price 11,475</p>
               <button className="add-to-cart">Add to Cart</button>
             </div>
 
             <div className="product-item">
-              <img src="/furnaniture_4.jpeg" alt="headphone" />
+              <img src="/furnaniture_4.jpeg" alt="almira" />
               <h3>Almira</h3>
-              <p>Description of Product 3</p>
+              <p>Price 15,400</p>
               <button className="add-to-cart">Add to Cart</button>
             </div>
 
             <div className="product-item">
-              <img src="/furnaniture_5.jpeg" alt="headphone" />
+              <img src="/furnaniture_5.jpeg" alt="mirror" />
               <h3>Mirror</h3>
-              <p>Description of Product 3</p>
+              <p>Price 5000</p>
               <button className="add-to-cart">Add to Cart</button>
             </div>
 
             <div className="product-item">
-              <img src="/home_1.jpeg" alt="shose" />
+              <img src="/home_1.jpeg" alt="oven" />
               <h3>Oven</h3>
-              <p>Description of Product 1</p>
+              <p>Price 6500</p>
               <button className="add-to-cart">Add to Cart</button>
             </div>
 
             <div className="product-item">
-              <img src="/home_2.jpeg" alt="sunglasses" />
+              <img src="/home_2.jpeg" alt="juicer" />
               <h3>Juicer</h3>
-              <p>Description of Product 2</p>
+              <p>Price 3500</p>
               <button className="add-to-cart">Add to Cart</button>
             </div>
 
