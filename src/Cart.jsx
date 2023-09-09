@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Modal from "./Modal";
 import "./home.css";
 
-const Cart = () => {
+const Cart = ({ totalCartItems }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [cartItems, setCartItems] = useState([]);
+
+  useEffect(() => {
+    setCartItems(totalCartItems);
+  }, []);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -13,33 +18,17 @@ const Cart = () => {
     setIsModalOpen(false);
   };
 
-  // Assume you have a cartItems array with selected items in your state.
-  const [cartItems, setCartItems] = useState([
-    {
-      id: 1,
-      name: "Nike Shoes",
-      price: 20.99,
-      quantity: 1,
-    },
-    {
-      id: 2,
-      name: "Goggles",
-      price: 15.49,
-      quantity: 1,
-    },
-    // Add more items as needed.
-  ]);
-
-  // Calculate the total price of items in the cart.
-  const totalPrice = cartItems.reduce(
-    (total, item) => total + item.price * item.quantity,
-    0
-  );
-
-  // Function to remove an item from the cart
   const removeFromCart = (itemId) => {
     const updatedCart = cartItems.filter((item) => item.id !== itemId);
     setCartItems(updatedCart);
+  };
+
+  const calculateTotalPrice = () => {
+    let total = 0;
+    for (const item of cartItems) {
+      total += item.price * item.quantity;
+    }
+    return total;
   };
 
   return (
@@ -58,13 +47,14 @@ const Cart = () => {
           {cartItems.map((item) => (
             <tr key={item.id}>
               <td>{item.name}</td>
-              <td>${item.price.toFixed(2)}</td>
+              <td>₹{item.price}</td>
               <td>{item.quantity}</td>
-              <td>${(item.price * item.quantity).toFixed(2)}</td>
+              <td>₹{item.price * item.quantity}</td> {/* Calculate the total here */}
               <td>
                 <button
                   className="remove-button"
-                  onClick={() => removeFromCart(item.id)}>
+                  onClick={() => removeFromCart(item.id)}
+                >
                   Remove
                 </button>
               </td>
@@ -74,7 +64,7 @@ const Cart = () => {
       </table>
 
       <div className="cart-summary">
-        <p>Total: ${totalPrice.toFixed(2)}</p>
+        <p>Total: ₹{calculateTotalPrice()}</p> {/* Display the total here */}
         <button className="checkout-button" onClick={openModal}>
           Checkout
         </button>
