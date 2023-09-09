@@ -57,7 +57,6 @@ const Navbar = () => {
                 </NavLink>
               </li>
               <li>
-                
                 {isAuthenticated ? (
                   <button
                     onClick={() => logout({ returnTo: window.location.origin })}

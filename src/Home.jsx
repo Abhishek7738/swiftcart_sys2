@@ -1,8 +1,231 @@
-import React from "react";
+import React, { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const Home = () => {
   const { loginWithRedirect, user, isAuthenticated } = useAuth0();
+  const [selectedItem, setSelectedItem] = useState("Category");
+
+  const categoryData = [
+    {
+      title: "Category",
+      icon: "🌟",
+    },
+    {
+      title: "Electronics",
+      icon: "📺",
+    },
+    {
+      title: "Fashion",
+      icon: "👗",
+    },
+    {
+      title: "Home Appliance",
+      icon: "🥤",
+    },
+    {
+      title: "Furniture",
+      icon: "🪑",
+    },
+    {
+      title: "Mobile",
+      icon: "📱",
+    },
+  ];
+
+  const allProductItems = [
+    {
+      category: "Electronics",
+      image: "/electro_1.jpeg",
+      name: "Laptop",
+      price: "56,500",
+      description: "Description of Laptop",
+    },
+    {
+      category: "Electronics",
+      image: "/electro_2.jpeg",
+      name: "DSLR Camera",
+      price: "85,393",
+      description: "Description of DSLR Camera",
+    },
+    {
+      category: "Electronics",
+      image: "/electro_3.jpeg",
+      name: "Soundbar",
+      price: "4,599",
+      description: "Description of Soundbar",
+    },
+    {
+      category: "Electronics",
+      image: "/electro_4.jpeg",
+      name: "Drone Cam",
+      price: "1,54,999",
+      description: "Description of Drone Cam",
+    },
+    {
+      category: "Electronics",
+      image: "/electro_5.jpeg",
+      name: "Headphone",
+      price: "2,999",
+      description: "Description of Headphone",
+    },
+    {
+      category: "Fashion",
+      image: "/fashion_1.jpeg",
+      name: "Shoes",
+      price: "5,365",
+      description: "Description of Shoes",
+    },
+    {
+      category: "Fashion",
+      image: "/fashion_2.jpeg",
+      name: "Jeans",
+      price: "2,163",
+      description: "Description of Jeans",
+    },
+    {
+      category: "Fashion",
+      image: "/fashion_3.jpeg",
+      name: "Watch",
+      price: "2,199",
+      description: "Description of Watch",
+    },
+    {
+      category: "Fashion",
+      image: "/fashion_4.jpeg",
+      name: "Tshirt",
+      price: "1,500",
+      description: "Description of Tshirt",
+    },
+    {
+      category: "Fashion",
+      image: "/fashion_5.jpeg",
+      name: "Goggle",
+      price: "999",
+      description: "Description of Goggle",
+    },
+    {
+      category: "Furniture",
+      image: "/furnaniture_1.jpeg",
+      name: "Bed",
+      price: "25,600",
+      description: "Description of Bed",
+    },
+    {
+      category: "Furniture",
+      image: "/furnaniture_2.jpeg",
+      name: "Table",
+      price: "4,500",
+      description: "Description of Table",
+    },
+    {
+      category: "Furniture",
+      image: "/furnaniture_3.jpeg",
+      name: "Chair",
+      price: "11,475",
+      description: "Description of Chair",
+    },
+    {
+      category: "Furniture",
+      image: "/furnaniture_4.jpeg",
+      name: "Almira",
+      price: "15,400",
+      description: "Description of Almira",
+    },
+    {
+      category: "Furniture",
+      image: "/furnaniture_5.jpeg",
+      name: "Mirror",
+      price: "5,000",
+      description: "Description of Mirror",
+    },
+    {
+      category: "Home Appliances",
+      image: "/home_1.jpeg",
+      name: "Oven",
+      price: "6,500",
+      description: "Description of Oven",
+    },
+    {
+      category: "Home Appliances",
+      image: "/home_2.jpeg",
+      name: "Juicer",
+      price: "3,500",
+      description: "Description of Juicer",
+    },
+    {
+      category: "Home Appliances",
+      image: "/home_3.jpeg",
+      name: "Washing Machine",
+      price: "Price 3",
+      description: "Description of Washing Machine",
+    },
+    {
+      category: "Home Appliances",
+      image: "/home_4.jpeg",
+      name: "TV",
+      price: "Price 3",
+      description: "Description of TV",
+    },
+    {
+      category: "Home Appliances",
+      image: "/home_5.jpeg",
+      name: "Refrigerator",
+      price: "Price 3",
+      description: "Description of Refrigerator",
+    },
+    {
+      category: "Mobile",
+      image: "/mobile_1.jpeg",
+      name: "Mobile",
+      price: "Price 4",
+      description: "Description of Mobile",
+    },
+    {
+      category: "Mobile",
+      image: "/mobile_2.jpeg",
+      name: "Mobile",
+      price: "Price 3",
+      description: "Description of Mobile",
+    },
+    {
+      category: "Mobile",
+      image: "/mobile_3.jpeg",
+      name: "Mobile",
+      price: "Price 3",
+      description: "Description of Mobile",
+    },
+    {
+      category: "Mobile",
+      image: "/mobile_4.jpeg",
+      name: "Mobile",
+      price: "Price 3",
+      description: "Description of Mobile",
+    },
+    {
+      category: "Mobile",
+      image: "/mobile_5.jpeg",
+      name: "Mobile",
+      price: "Price 3",
+      description: "Description of Mobile",
+    },
+  ];
+
+  const productItems = allProductItems?.filter((product) => {
+    if (selectedItem === "Category") {
+      return true;
+    } else {
+      return (
+        product.category.replace(/[^a-zA-Z ]/g, "").trim() ===
+        selectedItem.trim()
+      );
+    }
+  });
+
+  const handleAddToCart = (productName) => {
+    console.log("Selected Product: ", productName);
+    setSelectedItem(productName);
+  };
+
   return (
     <>
       <div className="container">
@@ -16,35 +239,20 @@ const Home = () => {
                 id="dropdownMenuLink"
                 data-bs-toggle="dropdown"
                 aria-expanded="false">
-                🌟 Category
+                {categoryData?.map(
+                  (val, index) =>
+                    val.title === selectedItem && val.icon + " " + selectedItem
+                )}
               </a>
 
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <li>
-                  <a class="dropdown-item" href="#">
-                    📺 Electronics
-                  </a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#">
-                    👗 Fashion
-                  </a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#">
-                    🥤 Home Appliance
-                  </a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#">
-                    🪑 Furniture
-                  </a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#">
-                    📱 Mobile
-                  </a>
-                </li>
+                {categoryData?.map((val, index) => (
+                  <li key={index} onClick={() => handleAddToCart(val?.title)}>
+                    <a class="dropdown-item" href="#">
+                      {val?.icon + " " + val?.title}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
 
@@ -59,460 +267,31 @@ const Home = () => {
         </div>
 
         {isAuthenticated ? (
-          // onclick add to cart
-
           <section className="products">
-            <div className="product-item">
-              <img src="/electro_1.jpeg" alt="laptop" />
-              <h3>Laptop</h3>
-              <p>Price 56,500</p>
-              <button className="add-to-cart">Add to Cart</button>
-            </div>
-
-            <div className="product-item">
-              <img src="/electro_2.jpeg" alt="Camera" />
-              <h3>DSLR Camera</h3>
-              <p>Price 85,393</p>
-              <button className="add-to-cart">Add to Cart</button>
-            </div>
-
-            <div className="product-item">
-              <img src="/electro_3.jpeg" alt="soundbar" />
-              <h3>Soundbar</h3>
-              <p>Price 4599</p>
-              <button className="add-to-cart">Add to Cart</button>
-            </div>
-
-            <div className="product-item">
-              <img src="/electro_4.jpeg" alt="dronecam" />
-              <h3>Drone Cam</h3>
-              <p>Price 1,54999</p>
-              <button className="add-to-cart">Add to Cart</button>
-            </div>
-
-            <div className="product-item">
-              <img src="/electro_5.jpeg" alt="headphone" />
-              <h3>Headphone</h3>
-              <p>Price 2999</p>
-              <button className="add-to-cart">Add to Cart</button>
-            </div>
-
-            <div className="product-item">
-              <img src="/fashion_1.jpeg" alt="shoes" />
-              <h3>Shoes</h3>
-              <p>Price 5365</p>
-              <button className="add-to-cart">Add to Cart</button>
-            </div>
-
-            <div className="product-item">
-              <img src="/fashion_2.jpeg" alt="jeans" />
-              <h3>Jeans</h3>
-              <p>Price 2163</p>
-              <button className="add-to-cart">Add to Cart</button>
-            </div>
-
-            <div className="product-item">
-              <img src="/fashion_3.jpeg" alt="watch" />
-              <h3>Watch</h3>
-              <p>Price 2199</p>
-              <button className="add-to-cart">Add to Cart</button>
-            </div>
-
-            <div className="product-item">
-              <img src="/fashion_4.jpeg" alt="tshirt" />
-              <h3>Tshirt</h3>
-              <p>Price 1500</p>
-              <button className="add-to-cart">Add to Cart</button>
-            </div>
-
-            <div className="product-item">
-              <img src="/fashion_5.jpeg" alt="goggle" />
-              <h3>Goggle</h3>
-              <p>Price 999</p>
-              <button className="add-to-cart">Add to Cart</button>
-            </div>
-
-            <div className="product-item">
-              <img src="/furnaniture_1.jpeg" alt="bed" />
-              <h3>Bed</h3>
-              <p>Price 25,600</p>
-              <button className="add-to-cart">Add to Cart</button>
-            </div>
-
-            <div className="product-item">
-              <img src="/furnaniture_2.jpeg" alt="table" />
-              <h3>Table</h3>
-              <p>Price 4500</p>
-              <button className="add-to-cart">Add to Cart</button>
-            </div>
-
-            <div className="product-item">
-              <img src="/furnaniture_3.jpeg" alt="chair" />
-              <h3>Chair</h3>
-              <p>Price 11,475</p>
-              <button className="add-to-cart">Add to Cart</button>
-            </div>
-
-            <div className="product-item">
-              <img src="/furnaniture_4.jpeg" alt="almira" />
-              <h3>Almira</h3>
-              <p>Price 15,400</p>
-              <button className="add-to-cart">Add to Cart</button>
-            </div>
-
-            <div className="product-item">
-              <img src="/furnaniture_5.jpeg" alt="mirror" />
-              <h3>Mirror</h3>
-              <p>Price 5000</p>
-              <button className="add-to-cart">Add to Cart</button>
-            </div>
-
-            <div className="product-item">
-              <img src="/home_1.jpeg" alt="oven" />
-              <h3>Oven</h3>
-              <p>Price 6500</p>
-              <button className="add-to-cart">Add to Cart</button>
-            </div>
-
-            <div className="product-item">
-              <img src="/home_2.jpeg" alt="juicer" />
-              <h3>Juicer</h3>
-              <p>Price 3500</p>
-              <button className="add-to-cart">Add to Cart</button>
-            </div>
-
-            <div className="product-item">
-              <img src="/home_3.jpeg" alt="headphone" width={50} />
-              <h3>Washing Machine</h3>
-              <p>Description of Product 3</p>
-              <button className="add-to-cart">Add to Cart</button>
-            </div>
-
-            <div className="product-item">
-              <img src="/home_4.jpeg" alt="headphone" />
-              <h3>Tv</h3>
-              <p>Description of Product 3</p>
-              <button className="add-to-cart">Add to Cart</button>
-            </div>
-
-            <div className="product-item">
-              <img src="/home_5.jpeg" alt="headphone" width={50} />
-              <h3>Refrigerator</h3>
-              <p>Description of Product 3</p>
-              <button className="add-to-cart">Add to Cart</button>
-            </div>
-
-            <div className="product-item">
-              <img src="/mobile_1.jpeg" alt="facemsk" />
-              <h3>Mobile</h3>
-              <p>Description of Product 4</p>
-              <button className="add-to-cart">Add to Cart</button>
-            </div>
-
-            <div className="product-item">
-              <img src="/mobile_2.jpeg" alt="headphone" />
-              <h3>Mobile</h3>
-              <p>Description of Product 3</p>
-              <button className="add-to-cart">Add to Cart</button>
-            </div>
-
-            <div className="product-item">
-              <img src="/mobile_3.jpeg" alt="headphone" />
-              <h3>Mobile</h3>
-              <p>Description of Product 3</p>
-              <button className="add-to-cart">Add to Cart</button>
-            </div>
-
-            <div className="product-item">
-              <img src="/mobile_4.jpeg" alt="headphone" />
-              <h3>Mobile</h3>
-              <p>Description of Product 3</p>
-              <button className="add-to-cart">Add to Cart</button>
-            </div>
-
-            <div className="product-item">
-              <img src="/mobile_5.jpeg" alt="headphone" />
-              <h3>Mobile</h3>
-              <p>Description of Product 3</p>
-              <button className="add-to-cart">Add to Cart</button>
-            </div>
+            {productItems?.map((val, index) => (
+              <div className="product-item">
+                <img src={val.image} alt={val.name} />
+                <h3>{val.name}</h3>
+                <p>Price {val.price}</p>
+                <button className="add-to-cart">Add to Cart</button>
+              </div>
+            ))}
           </section>
         ) : (
           <section className="products">
-            <div className="product-item">
-              <img src="/electro_1.jpeg" alt="shose" />
-              <h3>Laptop</h3>
-              <p>Description of Product 1</p>
-              <button
-                className="add-to-cart"
-                onClick={() => loginWithRedirect()}>
-                Add to Cart
-              </button>
-            </div>
-
-            <div className="product-item">
-              <img src="/electro_2.jpeg" alt="sunglasses" />
-              <h3>DSLR Camera</h3>
-              <p>Description of Product 2</p>
-              <button
-                className="add-to-cart"
-                onClick={() => loginWithRedirect()}>
-                Add to Cart
-              </button>
-            </div>
-
-            <div className="product-item">
-              <img src="/electro_3.jpeg" alt="headphone" />
-              <h3>Soundbar</h3>
-              <p>Description of Product 3</p>
-              <button
-                className="add-to-cart"
-                onClick={() => loginWithRedirect()}>
-                Add to Cart
-              </button>
-            </div>
-
-            <div className="product-item">
-              <img src="/electro_4.jpeg" alt="headphone" />
-              <h3>Drone Cam</h3>
-              <p>Description of Product 3</p>
-              <button
-                className="add-to-cart"
-                onClick={() => loginWithRedirect()}>
-                Add to Cart
-              </button>
-            </div>
-
-            <div className="product-item">
-              <img src="/electro_5.jpeg" alt="headphone" />
-              <h3>Headphone</h3>
-              <p>Description of Product 3</p>
-              <button
-                className="add-to-cart"
-                onClick={() => loginWithRedirect()}>
-                Add to Cart
-              </button>
-            </div>
-
-            <div className="product-item">
-              <img src="/fashion_1.jpeg" alt="facemsk" />
-              <h3>Shoes</h3>
-              <p>Description of Product 4</p>
-              <button
-                className="add-to-cart"
-                onClick={() => loginWithRedirect()}>
-                Add to Cart
-              </button>
-            </div>
-
-            <div className="product-item">
-              <img src="/fashion_2.jpeg" alt="headphone" />
-              <h3>Jeans</h3>
-              <p>Description of Product 3</p>
-              <button
-                className="add-to-cart"
-                onClick={() => loginWithRedirect()}>
-                Add to Cart
-              </button>
-            </div>
-
-            <div className="product-item">
-              <img src="/fashion_3.jpeg" alt="headphone" />
-              <h3>Watch</h3>
-              <p>Description of Product 3</p>
-              <button
-                className="add-to-cart"
-                onClick={() => loginWithRedirect()}>
-                Add to Cart
-              </button>
-            </div>
-
-            <div className="product-item">
-              <img src="/fashion_4.jpeg" alt="headphone" />
-              <h3>Tshirt</h3>
-              <p>Description of Product 3</p>
-              <button
-                className="add-to-cart"
-                onClick={() => loginWithRedirect()}>
-                Add to Cart
-              </button>
-            </div>
-
-            <div className="product-item">
-              <img src="/fashion_5.jpeg" alt="headphone" />
-              <h3>Goggle</h3>
-              <p>Description of Product 3</p>
-              <button
-                className="add-to-cart"
-                onClick={() => loginWithRedirect()}>
-                Add to Cart
-              </button>
-            </div>
-
-            <div className="product-item">
-              <img src="/furnaniture_1.jpeg" alt="headphone" />
-              <h3>Bed</h3>
-              <p>Description of Product 3</p>
-              <button
-                className="add-to-cart"
-                onClick={() => loginWithRedirect()}>
-                Add to Cart
-              </button>
-            </div>
-
-            <div className="product-item">
-              <img src="/furnaniture_2.jpeg" alt="headphone" />
-              <h3>Table</h3>
-              <p>Description of Product 3</p>
-              <button
-                className="add-to-cart"
-                onClick={() => loginWithRedirect()}>
-                Add to Cart
-              </button>
-            </div>
-
-            <div className="product-item">
-              <img src="/furnaniture_3.jpeg" alt="headphone" />
-              <h3>Chair</h3>
-              <p>Description of Product 3</p>
-              <button
-                className="add-to-cart"
-                onClick={() => loginWithRedirect()}>
-                Add to Cart
-              </button>
-            </div>
-
-            <div className="product-item">
-              <img src="/furnaniture_4.jpeg" alt="headphone" />
-              <h3>Almira</h3>
-              <p>Description of Product 3</p>
-              <button
-                className="add-to-cart"
-                onClick={() => loginWithRedirect()}>
-                Add to Cart
-              </button>
-            </div>
-
-            <div className="product-item">
-              <img src="/furnaniture_5.jpeg" alt="headphone" />
-              <h3>Mirror</h3>
-              <p>Description of Product 3</p>
-              <button
-                className="add-to-cart"
-                onClick={() => loginWithRedirect()}>
-                Add to Cart
-              </button>
-            </div>
-
-            <div className="product-item">
-              <img src="/home_1.jpeg" alt="shose" />
-              <h3>Oven</h3>
-              <p>Description of Product 1</p>
-              <button
-                className="add-to-cart"
-                onClick={() => loginWithRedirect()}>
-                Add to Cart
-              </button>
-            </div>
-
-            <div className="product-item">
-              <img src="/home_2.jpeg" alt="sunglasses" />
-              <h3>Juicer</h3>
-              <p>Description of Product 2</p>
-              <button
-                className="add-to-cart"
-                onClick={() => loginWithRedirect()}>
-                Add to Cart
-              </button>
-            </div>
-
-            <div className="product-item">
-              <img src="/home_3.jpeg" alt="headphone" width={50} />
-              <h3>Washing Machine</h3>
-              <p>Description of Product 3</p>
-              <button
-                className="add-to-cart"
-                onClick={() => loginWithRedirect()}>
-                Add to Cart
-              </button>
-            </div>
-
-            <div className="product-item">
-              <img src="/home_4.jpeg" alt="headphone" />
-              <h3>Tv</h3>
-              <p>Description of Product 3</p>
-              <button
-                className="add-to-cart"
-                onClick={() => loginWithRedirect()}>
-                Add to Cart
-              </button>
-            </div>
-
-            <div className="product-item">
-              <img src="/home_5.jpeg" alt="headphone" width={50} />
-              <h3>Refrigerator</h3>
-              <p>Description of Product 3</p>
-              <button
-                className="add-to-cart"
-                onClick={() => loginWithRedirect()}>
-                Add to Cart
-              </button>
-            </div>
-
-            <div className="product-item">
-              <img src="/mobile_1.jpeg" alt="facemsk" />
-              <h3>Mobile</h3>
-              <p>Description of Product 4</p>
-              <button
-                className="add-to-cart"
-                onClick={() => loginWithRedirect()}>
-                Add to Cart
-              </button>
-            </div>
-
-            <div className="product-item">
-              <img src="/mobile_2.jpeg" alt="headphone" />
-              <h3>Mobile</h3>
-              <p>Description of Product 3</p>
-              <button
-                className="add-to-cart"
-                onClick={() => loginWithRedirect()}>
-                Add to Cart
-              </button>
-            </div>
-
-            <div className="product-item">
-              <img src="/mobile_3.jpeg" alt="headphone" />
-              <h3>Mobile</h3>
-              <p>Description of Product 3</p>
-              <button
-                className="add-to-cart"
-                onClick={() => loginWithRedirect()}>
-                Add to Cart
-              </button>
-            </div>
-
-            <div className="product-item">
-              <img src="/mobile_4.jpeg" alt="headphone" />
-              <h3>Mobile</h3>
-              <p>Description of Product 3</p>
-              <button
-                className="add-to-cart"
-                onClick={() => loginWithRedirect()}>
-                Add to Cart
-              </button>
-            </div>
-
-            <div className="product-item">
-              <img src="/mobile_5.jpeg" alt="headphone" />
-              <h3>Mobile</h3>
-              <p>Description of Product 3</p>
-              <button
-                className="add-to-cart"
-                onClick={() => loginWithRedirect()}>
-                Add to Cart
-              </button>
-            </div>
+            {productItems?.map((val, index) => (
+              <div className="product-item">
+                <img src={val.image} alt={val.name} />
+                <h3>{val.name}</h3>
+                <p>{val.description}</p>
+                <p>Price {val.price}</p>
+                <button
+                  className="add-to-cart"
+                  onClick={() => loginWithRedirect()}>
+                  Add to Cart
+                </button>
+              </div>
+            ))}
           </section>
         )}
       </div>

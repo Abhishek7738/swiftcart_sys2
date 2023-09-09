@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import Modal from './Modal';
-import './home.css'
+import React, { useState } from "react";
+import Modal from "./Modal";
+import "./home.css";
 
 const Cart = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -17,20 +17,19 @@ const Cart = () => {
   const [cartItems, setCartItems] = useState([
     {
       id: 1,
-      name: 'Nike Shoes',
+      name: "Nike Shoes",
       price: 20.99,
       quantity: 1,
     },
     {
       id: 2,
-      name: 'Goggles',
+      name: "Goggles",
       price: 15.49,
       quantity: 1,
     },
     // Add more items as needed.
   ]);
 
-  
   // Calculate the total price of items in the cart.
   const totalPrice = cartItems.reduce(
     (total, item) => total + item.price * item.quantity,
@@ -63,7 +62,11 @@ const Cart = () => {
               <td>{item.quantity}</td>
               <td>${(item.price * item.quantity).toFixed(2)}</td>
               <td>
-                <button className="remove-button" onClick={() => removeFromCart(item.id)}>Remove</button>
+                <button
+                  className="remove-button"
+                  onClick={() => removeFromCart(item.id)}>
+                  Remove
+                </button>
               </td>
             </tr>
           ))}
@@ -72,7 +75,9 @@ const Cart = () => {
 
       <div className="cart-summary">
         <p>Total: ${totalPrice.toFixed(2)}</p>
-        <button className="checkout-button" onClick={openModal}>Checkout</button>
+        <button className="checkout-button" onClick={openModal}>
+          Checkout
+        </button>
       </div>
 
       <Modal isOpen={isModalOpen} closeModal={closeModal} />
